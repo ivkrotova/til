@@ -16,6 +16,9 @@ eval "$(ssh-agent -s)"
 # Add each private key to the agent
 ssh-add ~/.ssh/id_rsa_account1
 ssh-add ~/.ssh/id_rsa_account2
+
+# Verify the keys
+ssh-add -l
 ```
 
 ## 3. Add public keys to GitHub.
@@ -24,8 +27,20 @@ ssh-add ~/.ssh/id_rsa_account2
 cat ~/.ssh/id_rsa_account1.pub
 cat ~/.ssh/id_rsa_account2.pub
 ```
+Then:
+1. Go to GitHub -> Settings -> SSH and GPG keys -> New SSH key.
+2. Add the public key.
+3. Add a title, e.g. "Work Laptop".
+4. Repeat for the other account.
 
-## 4. Create an SSH Config File
+## 4. Test Your SSH Connection  
+
+```bash
+ssh -T git@github.com-account1
+ssh -T git@github.com-account2
+```
+
+## 5. Create an SSH Config File
 
 ```bash
 # Open or create the SSH config file
