@@ -8,7 +8,6 @@
 - [ReAct](https://arxiv.org/abs/2210.03629)
 - [Gorilla](https://gorilla.cs.berkeley.edu/)
 - [BFCL Leaderboard](https://www.latent.space/p/bfcl)
-  
 - Historical: [Toolformer](https://arxiv.org/abs/2302.04761) and [HuggingGPT](https://arxiv.org/abs/2303.17580)
 
 ## Agent Memory
