@@ -1,0 +1,1 @@
+[Berkley and DeepMind's course on LLM Agents](https://llmagents-learning.org/f24)
