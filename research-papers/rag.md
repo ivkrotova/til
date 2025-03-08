@@ -23,3 +23,7 @@
 - [RAGAS](https://arxiv.org/abs/2309.15217) - OpenAI-recommended RAG evaluation framework
 - [Nvidia FACTS](https://arxiv.org/abs/2407.07858v1) - comprehensive evaluation framework
 - [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) - Lilian Weng's survey on hallucination causes and evaluation
+
+## RAG vs. Long Context debate
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833)
+
