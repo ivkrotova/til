@@ -1,0 +1,5 @@
+- [The Prompt Report](https://arxiv.org/abs/2406.06608) - a survey of prompting papers (podcast).
+- [Chain-of-Thought](https://arxiv.org/abs/2201.11903) - one of multiple claimants to popularizing Chain of Thought, along with Scratchpads and Let’s Think Step By Step.
+- [Tree of Thought](https://arxiv.org/abs/2305.10601) - introducing lookaheads and backtracking (podcast).
+- [Prompt Tuning](https://aclanthology.org/2021.emnlp-main.243/) - you may not need prompts - if you can do Prefix-Tuning, adjust decoding (say via entropy), or representation engineering.
+- [Automatic Prompt Engineering](https://arxiv.org/abs/2211.01910) - it is increasingly obvious that humans are terrible zero-shot prompters and prompting itself can be enhanced by LLMs. The most notable implementation of this is in the DSPy paper/framework.
