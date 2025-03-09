@@ -31,7 +31,7 @@
 
 ## Mistral AI
 - [Mistral 7B](https://arxiv.org/abs/2310.06825)
-- [Mixtral](https://arxiv.org/abs/2401.04088)
+- [Mixtral of Experts](https://arxiv.org/abs/2401.04088)
 - [Pixtral](https://arxiv.org/abs/2410.07073)
 
 ## DeepSeek
