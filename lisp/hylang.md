@@ -30,77 +30,95 @@ def evaluate_model(model, X_test, y_test):
     return model.score(X_test, y_test)
 ```
 
-```hy
-(defmacro train-evaluate [model X_train y_train X_test y_test]
-  `(do
-     (.fit ~model ~X_train ~y_train)
-     (.score ~model ~X_test ~y_test)))
 
+```hy
+;; Define a macro `train-evaluate` that trains a model and evaluates it
+(defmacro train-evaluate [model X_train y_train X_test y_test]
+  `(do  ;; `do` allows multiple expressions to be evaluated sequentially
+     (.fit ~model ~X_train ~y_train)  ;; Train the model with training data
+     (.score ~model ~X_test ~y_test)))  ;; Evaluate the model with test data
+
+;; Create an instance of LogisticRegression from sklearn
 (def model (sklearn.linear_model.LogisticRegression))
+
+;; Use the macro to train and evaluate the model
 (train-evaluate model X_train y_train X_test y_test)
 ```
 
 ## Symbolic Computation
 
 ```hy
+;; Define a simple grammar representation as a dictionary
 (def grammar
-  {"NP" ["Noun" "Adj Noun"]
-   "VP" ["Verb" "Verb NP"]
-   "S"  ["NP VP"]})
+  {"NP" ["Noun" "Adj Noun"]  ;; A noun phrase (NP) can be a noun or an adjective followed by a noun
+   "VP" ["Verb" "Verb NP"]  ;; A verb phrase (VP) can be a verb or a verb followed by an NP
+   "S"  ["NP VP"]})  ;; A sentence (S) consists of an NP followed by a VP
 
+;; Print the grammar dictionary
 (print grammar)
 ```
 
 ## Functional Programming
 
 ```hy
+;; Import pandas for data manipulation
 (import [pandas :as pd])
 
+;; Define a function to normalize a column in a dataframe
 (defn normalize [col]
-  (/ (- col (.min col)) (- (.max col) (.min col))))
+  (/ (- col (.min col)) (- (.max col) (.min col))))  ;; Normalization formula: (x - min) / (max - min)
 
+;; Define a function to clean a dataset
 (defn clean-data [df]
   (-> df
-      (.dropna)
-      (.apply normalize)))
+      (.dropna)  ;; Remove missing values
+      (.apply normalize)))  ;; Apply normalization to all columns
 
+;; Read a CSV file into a dataframe
 (setv df (pd.read_csv "data.csv"))
+
+;; Apply the cleaning function to the dataframe
 (setv df (clean-data df))
 ```
 
 ## DSL Creation
 
 ```hy
+;; Define a neural network configuration as a dictionary
 (setv config
-  {"layers" [{"type" "Dense" "units" 128 "activation" "relu"}
-             {"type" "Dense" "units" 64 "activation" "relu"}
-             {"type" "Dense" "units" 10 "activation" "softmax"}]
-   "optimizer" "adam"
-   "loss" "categorical_crossentropy"})
+  {"layers" [{"type" "Dense" "units" 128 "activation" "relu"}  ;; First hidden layer
+              {"type" "Dense" "units" 64 "activation" "relu"}   ;; Second hidden layer
+              {"type" "Dense" "units" 10 "activation" "softmax"}]  ;; Output layer with 10 classes
+   "optimizer" "adam"  ;; Use Adam optimizer
+   "loss" "categorical_crossentropy"})  ;; Loss function for multi-class classification
 ```
 
 ## Probabilistic Programming
 
 ```hy
+;; Import pymc3 for Bayesian modeling
 (import [pymc3 :as pm])
 
+;; Create a probabilistic model
 (setv model
-  (pm.Model))
+  (pm.Model))  ;; Instantiate a PyMC3 model
 
+;; Define random variables within the model context
 (with model
-  (setv mu (pm.Normal "mu" mu 0 sigma 10))
-  (setv sigma (pm.HalfNormal "sigma" sigma 1))
-  (setv likelihood (pm.Normal "obs" mu mu sigma sigma observed data)))
+  (setv mu (pm.Normal "mu" mu 0 sigma 10))  ;; Define a normal prior for mu
+  (setv sigma (pm.HalfNormal "sigma" sigma 1))  ;; Define a half-normal prior for sigma
+  (setv likelihood (pm.Normal "obs" mu mu sigma sigma observed data)))  ;; Define likelihood function with observed data
 ```
 
 ## Meta-Programming
 
 ```hy
+;; Define a macro that chooses a reinforcement learning policy
 (defmacro choose-policy [policy-name]
-  `(case ~policy-name
-     "epsilon-greedy" (lambda [q-values] ...)
-     "softmax" (lambda [q-values] ...)
-     "random" (lambda [q-values] ...)))
+  `(case ~policy-name  ;; Match the policy name to corresponding functions
+     "epsilon-greedy" (lambda [q-values] ...)  ;; Epsilon-greedy policy
+     "softmax" (lambda [q-values] ...)  ;; Softmax policy
+     "random" (lambda [q-values] ...)))  ;; Random action selection policy
 ```
 
 ## Links
